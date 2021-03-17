@@ -44,25 +44,6 @@
           	<img id="rw-logo-img" src="/assets/logo.png"class="rw-select-disable" style="width:250px; height: 250px; margin-top: 25px;" alt="Reverie Wisp Icon">
           </div>
 
-          <div id="rw-links">
-              <p>
-                Hello hello! I'm Wisp, a game developer and houseplant hoarder - thanks for checking out my stuff! Twitter or Telegram works best if you wanna get ahold of me, and anywhere else may take a little while but I'll get around to messages eventually. If you see 'Reverie Wisp' elsewhere, that's probably me too!
-              </p>
-              <br/>
-              <br/>
-              <a class="btn btn-info btn-circle btn-lg btn-radial-internal" href="https://twitter.com/ReverieWisp"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 1.3em; margin-left: -2px; margin-top: 3px;"></i></a>
-
-              <!--a class="btn btn-info btn-circle btn-lg" href=""><i class="fab fa-discord" aria-hidden="true"></i></a-->
-
-              <a class="btn btn-info btn-circle btn-lg btn-radial-internal" href="https://web.telegram.org/#/im?p=@Reverie_Wisp"><i class="fa fa-paper-plane" aria-hidden="true" style="margin-left: -3px;"></i></a>
-
-              <a class="btn btn-info btn-circle btn-lg btn-radial-internal" href="https://github.com/ReverieWisp"><i class="fa fa-github" aria-hidden="true" style="font-size: 1.6em; margin-left: -4px; margin-top: 0px;"></i></a>
-
-              <a class="btn btn-info btn-circle btn-lg btn-radial-internal" href="https://reveriewisp.deviantart.com"><i class="fa fa-deviantart" aria-hidden="true" style="font-size: 1.2em; margin-top: 4px;"></i></a>
-
-              <a class="btn btn-info btn-circle btn-lg btn-radial-internal" href="https://wisp.coffee/"><i class="fas fa-coffee" aria-hidden="true" style="font-size: 1.1em; margin-top: 5px; margin-left: -4px;"></i></a>
-          </div>
-
           <div id="rw-about">
             <img class="rw-select-disable rw-dropshadow rw-pixel" style="height: 250px;" id="rw-avatar-main" src="/assets/wisp-by-shilmaz-via-rin-blep-clear.png" alt="A picture of Wisp - a grey dragon character with grown hair, glasses, and a smile!">
             <svg style="position: relative; left: -20px; top: -280px; margin-top: 20px; transform: rotate(37deg);" viewBox="0 0 430 430">
@@ -75,18 +56,20 @@
             </svg>
           </div>
           
-          <!-- Site: derg.ink -->
-          <a href="https://derg.ink/" class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" role="button"><i class="fas fa-paint-brush" aria-hidden="true"></i></a>
-
-          <!-- Site: derg.dev -->
-          <a href="https://derg.dev/" class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" role="button"><i class="fas fa-code  aria-hidden="true></i></a>
-
           <!-- Page: About -->
           <div id="rw-about-btn" class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" role="button"><i class="fas fa-user" aria-hidden="true"></i></div>
-
-          <!-- Page: Notes/Blog/Etc --> <!--/sitemap.html"--> <!--id="rw-display-hidden" -->
-          <a id="rw-links-btn" class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" role="button"><!--i class="fas fa-link" aria-hidden="true"--><i class="fas fa-lg fa-ellipsis-h" aria-hidden="true" style="margin-top: 12px;"></i><!--i class="fa fa-book fa-lg" aria-hidden="true"--></a>
           
+	  <!-- Link: Twitter -->
+	  <a class="btn btn-info btn-circle btn-lg btn-radial-internal" href="https://twitter.com/ReverieWisp"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 1.3em; margin-left: -2px; margin-top: 3px;"></i></a>
+
+	  <!-- Link: Telegram -->
+      	  <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable href="https://web.telegram.org/#/im?p=@Reverie_Wisp"><i class="fa fa-paper-plane" aria-hidden="true" style="margin-left: -3px;"></i></a>
+
+          <!-- Link: GitHub -->
+          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable href="https://github.com/ReverieWisp"><i class="fa fa-github" aria-hidden="true" style="font-size: 1.6em; margin-left: -4px; margin-top: 0px;"></i></a>
+
+          <!-- Link: ko-fi -->
+          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable href="https://ko-fi.com/reveriewisp"><i class="fas fa-coffee" aria-hidden="true" style="font-size: 1.1em; margin-top: 5px; margin-left: -4px;"></i></a>
         </div>
       </div>
       </div>
@@ -131,7 +114,7 @@
         let height = 300 + magicNumberOffsetY;//imageDiv.height() + magicNumberOffsetX;
           
         // By default the step evently distributes locations. This scales it.
-        let arcSpacing = 17.5;//13.5; < for 3
+        let arcSpacing = 17.5; //13.5; < for 3
         let auto_rad_conversion = arcSpacing * 3.1415/180;
         let initRotationOffset = -22;//-15; < for 3 // In degrees because of rasins
         let step = (2*Math.PI) / fields.length * auto_rad_conversion;
@@ -152,42 +135,8 @@
         });
       }
 
-      // Position the buttons around the image.
-      function positionInternalIconsOnLoad() {
-        // Defined variables for finding items and calculating positons
-        let fields = $('.btn-radial-internal');
-        let radius = 100
-        let magicNumberOffsetY = -12;
-        let magicNumberOffsetX = -20;
-        let width = 300 + magicNumberOffsetX;
-        let height = 300 + magicNumberOffsetY;
-        let arcSpacing = 26;
-        let auto_rad_conversion = arcSpacing * 3.1415/180;
-        let initRotationOffset = -50;
-        let step = (2*Math.PI) / fields.length * auto_rad_conversion;
-        let angle = (initRotationOffset * 3.1415/180) + step;
-
-        // Distribute function
-        fields.each(function() {
-          // Generate location
-          let x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
-          let y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
-
-          console.log(`xy: ${x}, ${y}`);
-
-          $(this).css({ left: x + 'px', top: y + 'px' });
-          $(this).css("visibility", "visible");
-          $(this).css("opacity", "0");
-          $(this).css("display", "none");
-
-          // Update stepping
-          angle += step;
-        });
-      }
-
       window.onload = function() {
         positionIconsOnLoad();
-        positionInternalIconsOnLoad();
       };
 
     let heightTargetShow = '300px';
@@ -201,7 +150,6 @@
       $('#rw-logo-img').animate({ height: heightTargetImageShow}, transitionTime);
       $('#rw-about').animate({ height: heightTargetHide }, transitionTime);
       $('#rw-links').animate({ height: heightTargetHide }, transitionTime, ()=>{$('#rw-links').css("display", "none");});
-      $('.btn-radial-internal').fadeTo(internalTransitionTime, 0);
     }
 
     function showAbout() {
@@ -209,7 +157,6 @@
       $('#rw-logo-img').animate({ height: heightTargetHide}, transitionTime);
       $('#rw-about').animate({ height: heightTargetShow }, transitionTime);
       $('#rw-links').animate({ height: heightTargetHide }, transitionTime, ()=>{$('#rw-links').css("display", "none");});
-      $('.btn-radial-internal').fadeTo(internalTransitionTime, 0);
     }
 
     function showLinks() {
@@ -218,7 +165,6 @@
       $('#rw-about').animate({ height: heightTargetHide }, transitionTime);
       $('#rw-links').animate({ height: heightTargetShow }, transitionTime);
       $('#rw-links').css("display", "block");
-      $('.btn-radial-internal').fadeTo(internalTransitionTime, 1);
     }
 
     $('#rw-links-btn').click(function () {
