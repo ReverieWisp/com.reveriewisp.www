@@ -1,0 +1,182 @@
+
+/*
+Note: To remove the box model from your CSS, you can do this. It means
+all the widths you specifcy are absolute. 
+However:
+
+[8:13:43 PM] German Floof: * is very low priority compared to anything 
+more specific that might also apply. Also, 99% of the time don't use * 
+as a selector, except to for example fix cross-browser things, because 
+it has to be evaluated for -every- element. However it's fine if you make
+sure that it's scope is small enough, so for example if you do #id * 
+that means 'any element, no matter how many levels deep, inside an 
+object with that id'. If you only have a few, then that's acceptable 
+even better would be #id > * which means 'objects that are direct 
+children (inside of) an object with that id`, but not any of its 
+children.
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*/
+
+body { 
+  /*Content default alignment, text-align applies to all (?)*/
+  text-align: center;
+
+  /* fallback color */
+  background: rgba(195,238,244,1);
+}
+
+/* This class is any box intended to be frequeny clicked for 
+navigation purposes. Upon hovering, items become less transparent. */
+.navbox {
+  border-radius:20px;
+  max-width: 200px;
+  min-width: 160px;
+  opacity: .75;
+}
+.navbox:hover {
+  opacity: 1.0;
+}
+
+/* A box for media downloads and content. Wraps automatically! */
+.linkBox{
+  display: inline-block;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 160px;
+  min-height: 160px;
+  
+}
+
+/* blog links specifically */
+.horizontalNavbox
+{
+  border-radius:20px;
+  max-width: 350px;
+  min-width: 250px;
+  opacity: .75;
+}
+.horizontalNavbox:hover{
+  opacity: 1.0;
+}
+
+#center{
+  /* Set a background color for the center column. */
+  /*background-color: rgba(130,120,0,.1);*/
+
+  /* Establish column size */
+  max-width: 640px;
+  min-width: 480px;
+  min-height: 100%;
+  max-height: 100%;
+
+  /* Center the text to be found here. */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+}
+
+/* This div is the size of the screen and is used to display the background
+fade image instead of using a background tag. */
+.greyGradient{
+    /* background gradient */
+  background: rgba(210,215,240,1); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgba(235,235,250,1), rgba(210,215,240,1), rgba(185,200,235,1)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(235,235,250,1), rgba(210,215,240,1), rgba(185,200,235,1));      /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(235,235,250,1), rgba(210,215,240,1), rgba(185,200,235,1));    /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(235,235,250,1), rgba(210,215,240,1), rgba(185,200,235,1));         /* Standard syntax */
+
+}
+
+#backgroundDiv{
+  /* Make Div the size of the screen. */
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background-image: url(/assets/Bg5.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size:cover;
+}
+
+#backgroundScrollable{
+  /* Make Div the size of the screen. */
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+
+/* This div contains everything in a center-aligned section. */
+#mainDiv{
+  /* Debug Color */
+  /*background-color: lightblue;*/
+
+  /* Set the max width to 500px, and stretch across the full screen.*/
+  max-width: 640px;
+  min-width: 480px;
+  margin: 0 auto;
+  min-height: 100%;
+
+  /* Using flex-style alignment, set up for divs inside of this one.*/
+  display: -webkit-flex;
+  display:    -moz-flex;
+  display:         flex;
+  -webkit-align-items: center;
+     -moz-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+     -moz-justify-content: center;
+          justify-content: center;
+
+}
+
+/* Div style for a div containing text for reading. This determines
+the primary visual layout of parapgraphs and raw text. */
+.textDiv{
+  text-align: left;
+  line-height: 150%;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+
+/* The avatar on the about page needs to float to the right of the text. */
+#wispImg {
+  float: right;
+  border-radius:20px;
+  margin: 0 0 1em 1em;
+}
+
+/* Social media icon images and their opacity */
+.socialMediaIcon {
+  width: 48px;
+  border-radius: 20%;
+  opacity: .75;
+}
+.socialMediaIcon:hover {
+  opacity: 1;
+}
+.image-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+#linkArea {
+  text-align: center;
+  padding-top: 32px;
+  margin: 0 auto;
+}
+
+#internalSpacerDiv a{
+  text-decoration: none;
+}
+

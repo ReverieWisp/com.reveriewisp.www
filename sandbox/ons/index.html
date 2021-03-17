@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title></title>
+
+	<style>
+	#image {
+	background-image:url('exploitable.jpg');
+	width: 543px;
+	height: 769px;
+	}
+		
+	#text {
+	position: absolute;
+	top: 210px;
+	left: 355px;
+	}
+	</style>
+</head>
+	
+<script type="text/javascript">
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function startHere() {
+ $("#text").html(getParameterByName('text'));
+}
+
+ window.onload = startHere;
+</script>
+<body>
+  <div id="image">
+    <h2 id="text">b</h2>
+  </div>
+  <!--<img style="position: fixed; top: 0; left: 0;" src="exploitable.jpg" alt="nothing really of value">-->
+  
+</body>
+</html>

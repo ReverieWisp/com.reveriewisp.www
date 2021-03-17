@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- meta tags -->
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- external links -->
+		<script type="text/javascript" src="phaser.min.js"></script>
+
+		<title>Plz Boop</title>
+	</head>
+	<style type="text/css">
+	body {
+		margin: 0px;
+		padding: 0px;
+	}
+	</style>
+	<body>
+		<script>
+
+          ///////////////////
+         // Create Levels //
+        ///////////////////
+        // Main level
+        class Level1 extends Phaser.State {
+            // Variables
+
+            // ===== Phaser Functions ===== //
+            // First call for constructor.
+            constructor(game){ super(game); 
+
+                // Actual ctor content here.
+                this.emitter = null;
+                this.main_button = null;
+                this.particle_life = 4000;
+                this.offset = false;
+                this.wait_time = 6;
+                this.delay = this.wait_time;
+                this.last_click_time = 0;
+                this.to_destroy = [];
+            }
+
+            // Configuration goes here. This is called first after construction.
+            preload() {
+                game.load.image('icon', 'icon.png');
+                game.load.image('particle', 'particle.png');
+                game.load.audio('sfx', 'boop.mp3');
+                game.load.audio('sfx_up', 'boop_up.mp3');
+            }
+              
+            // Put things to be regularly initialized once here. 
+            create() {
+                // Setup
+                game.stage.backgroundColor = "#939294";
+                this.main_button = game.add.sprite(game.width/2, game.height/2, 'icon');
+                this.main_button.anchor.setTo(.5, .5);
+                this.main_button.x_original = this.main_button.x;
+                this.main_button.y_original = this.main_button.y;
+                this.main_button.inputEnabled = true;
+                this.main_button.events.onInputDown.add(function() {
+                	this.offset = true;
+	                this.emitter.x = this.main_button.x;
+	                this.emitter.y = this.main_button.y;
+	                this.emitter.start(true, this.particle_life, null, Math.floor(Math.random() * 20) + 10);
+	                let noise = game.add.audio('sfx');
+                    noise.play();
+					this.last_click_time = (new Date()).getTime();
+	                this.to_destroy.push(noise);
+                    this.delay = this.wait_time;
+                }, this);
+
+                // Particle emitter setup
+                game.physics.startSystem(Phaser.Physics.ARCADE);
+                this.emitter = game.add.emitter(this.main_button.x, this.main_button.y, 400);
+                this.emitter.gravity = 0;
+                this.emitter.minParticleScale = .02;
+                this.emitter.maxParticleScale = .7;
+                this.emitter.minParticleSpeed.x = -300;
+                this.emitter.minParticleSpeed.y = -300;
+                this.emitter.maxParticleSpeed.x = 300;
+                this.emitter.maxParticleSpeed.y = 300;
+                this.emitter.setAlpha(1, 0, this.particle_life);
+                this.emitter.makeParticles('particle');
+            }
+
+            update() {
+            	// Keep the button on top.
+            	game.world.bringToTop(this.main_button);
+                if(!game.input.activePointer.isDown)
+                    this.delay -= 1;
+
+                if(this.offset == true) {
+                    if(this.delay < 0) {
+                        let noise = game.add.audio('sfx_up');
+                        noise.play();
+                        this.to_destroy.push(noise);
+                        this.offset = false;
+                        this.delay = this.wait_time;
+                    }
+                }
+
+            	// Clean up used sounds.
+            	for(let i = 0; i < this.to_destroy.length;) {
+            		if(this.to_destroy[i].isPlaying) {
+            			++i;
+            		} else {
+            			this.to_destroy[i].destroy();
+            			// this line should work alone, but does not work. So I increment i after.
+            			this.to_destroy.splice(i, 1);
+            			//++i;
+            		}
+            	}
+
+            	// Handle button offset as necessary.
+            	if(this.offset) {
+            		this.main_button.x = this.main_button.x_original + 2;
+            		this.main_button.y = this.main_button.y_original + 2;
+            	} else {
+            		this.main_button.x = this.main_button.x_original - 2;
+            		this.main_button.y = this.main_button.y_original - 2;
+            	}
+            }
+        }
+
+          //////////////////
+         // Phaser Setup //
+        //////////////////
+        // Get game object and add levels. Note: This must come last.
+        // Note: Consider scaling by window.devicePixelRatio.
+        var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '');  // Initialize the phaser window
+        game.state.add('level_main', new Level1(game));                                      // Add your levels like this.
+        game.state.start('level_main');                                                      // Dictates starting "Level".
+
+
+        window.onresize = function(event) {
+            game.destroy();
+            game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '');
+            game.state.add('level_main', new Level1(game));
+            game.state.start('level_main');    
+        }
+		</script>
+	</body>
+</html>

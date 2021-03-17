@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- meta tags -->
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- external links -->
+        <script type="text/javascript" src="phaser.min.js"></script>
+
+        <!-- page config -->
+        <title>Weh</title>
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <body>
+        <script>
+
+          ///////////////////
+         // Create Levels //
+        ///////////////////
+        // Main level
+        class Level1 extends Phaser.State {
+            // Variables
+
+            // ===== Phaser Functions ===== //
+            // First call for constructor.
+            constructor(game){ super(game); 
+
+                // Actual ctor content here.
+                this.emitter_weh = null;
+                this.sound_squeak_low = null;
+                this.sound_squeak_med = null;
+                this.sound_squeak_high = null;
+            }
+
+            // Configuration goes here. This is called first after construction.
+            preload() {
+                game.load.image('weh', 'weh.png');
+                game.load.audio('squeak_low', 'squeak_low.wav');
+                game.load.audio('squeak_mid', 'squeak_mid.wav');
+                game.load.audio('squeak_high', 'squeak_high.wav');
+            }
+              
+            // Put things to be regularly initialized once here. 
+            create() {
+                game.stage.backgroundColor = "#BBBBBF";
+
+                // squeak sound setup
+                this.sound_squeak_low = game.add.audio('squeak_low');
+                this.sound_squeak_med = game.add.audio('squeak_mid');
+                this.sound_squeak_high = game.add.audio('squeak_high');
+
+                // weh particle emitter setup
+                game.physics.startSystem(Phaser.Physics.ARCADE);
+                this.emitter_weh = game.add.emitter(0, 0, 250);
+                this.emitter_weh.makeParticles('weh');
+                this.emitter_weh.gravity = 200;
+                this.emitter_weh.setAlpha(1, 0, 2000);
+
+                // Link up
+                game.input.onDown.add(this.emit, this);
+
+                // Should be called last.
+                this.init();
+            }
+            
+            getRand()
+            {
+            	return .65 + Math.random() * 10 / 5 - .1;
+            }
+
+            emit(mouse_ptr){
+                this.emitter_weh.x = mouse_ptr.x;
+                this.emitter_weh.y = mouse_ptr.y;
+                this.emitter_weh.start(true, 2000, null, Math.floor(Math.random() * 10) + 5);
+
+				let rand =  Math.floor(Math.random() * 3);
+				if(rand == 0)
+				{
+					this.sound_squeak_low.volume = this.getRand();
+					this.sound_squeak_low.play();
+				}
+				else if(rand == 1)
+				{
+					this.sound_squeak_med.volume = this.getRand();
+					this.sound_squeak_med.play();
+				}
+				else if (rand == 2)
+				{
+					this.sound_squeak_high.volume = this.getRand();
+					this.sound_squeak_high.play();
+				}
+            }
+
+            // Called once per loop.
+            update() {
+                this.draw(); // Should be called last.
+            }
+
+            // ===== Recommended Functions ===== //
+            // Initialization (and by extention re-initialization or restart code here.)
+            init() {
+            }
+            
+            // Draw code here!
+            draw() {
+            }
+        }
+
+          //////////////////
+         // Phaser Setup //
+        //////////////////
+        // Get game object and add levels. Note: This must come last.
+        // Note: Consider scaling by window.devicePixelRatio.
+        var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '');  // Initialize the phaser window
+        game.state.add('level_main', new Level1(game));                                      // Add your levels like this.
+        game.state.start('level_main');                                                      // Dictates starting "Level".
+
+        </script>
+    </body>
+</html>
