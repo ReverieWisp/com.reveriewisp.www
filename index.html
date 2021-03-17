@@ -29,8 +29,17 @@
     }
 
     .rw-pixel {
-    image-rendering: pixelated;
-  }
+      image-rendering: pixelated;
+    }
+
+    .rw-image-text {
+      position: relative;
+      left: 0px;
+      top: -50px;
+      margin-top: 20px;
+      text-align: left;
+      opacity: 0.5;
+    }
   </style>
 
   <body>
@@ -40,60 +49,46 @@
         <div id="rw-approximately-centered-div">
 
           <!-- "Center" image and section -->
-          <div id="rw-logo" class="rw-dropshadow" style="max-width: 300px; max-height: 300px;">
-            <img id="rw-logo-img" src="/assets/logo.png"class="rw-select-disable" style="width:250px; height: 250px; margin-top: 25px;" alt="Reverie Wisp Icon">
+          <div id="rw-focus" class="rw-dropshadow" style="max-width: 300px; max-height: 300px;">
+            <img class="rw-select-disable rw-dropshadow rw-pixel" style="width: 250px; height: 250px;" id="rw-avatar-main" src="/assets/wisp-by-shilmaz-via-rin-blep-clear.png" alt="A picture of Wisp - a grey dragon character with grown hair, glasses, and a smile!">
+            <div class="rw-image-text">
+              <p>
+                <a href="https://reveriewisp.com/assets/ref.png"><i class="fas fa-link"></i> Ref</a><br/>
+                <a href="https://twitter.com/shlimaz"><i class="fas fa-link"></i> Icon artist</a>
+              </p>
+            </div>
           </div>
-
-          <div id="rw-about">
-            <img class="rw-select-disable rw-dropshadow rw-pixel" style="height: 250px;" id="rw-avatar-main" src="/assets/wisp-by-shilmaz-via-rin-blep-clear.png" alt="A picture of Wisp - a grey dragon character with grown hair, glasses, and a smile!">
-            <svg style="position: relative; left: -20px; top: -280px; margin-top: 20px; transform: rotate(37deg);" viewBox="0 0 430 430">
-              <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
-              <text width="430">
-                <textPath xlink:href="#curve">
-                  <a href="https://reveriewisp.com/assets/ref.png">[Ref]</a> - <a href="https://twitter.com/shlimaz">[Icon by Shlimaz]</a>
-                </textPath>
-              </text>
-            </svg>
-          </div>
-          
-          <!-- Page: About -->
-          <div id="rw-about-btn" class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" role="button"><i class="fas fa-user" aria-hidden="true"></i></div>
           
           <!-- Link: Twitter -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://twitter.com/ReverieWisp"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 1.3em; margin-left: -2px; margin-top: 3px;"></i></a>
+          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://twitter.com/ReverieWisp"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 1.3em; margin-left: 2px; margin-top: 8px;"></i></a>
 
           <!-- Link: Telegram -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://web.telegram.org/#/im?p=@Reverie_Wisp"><i class="fa fa-paper-plane" aria-hidden="true" style="margin-left: -3px;"></i></a>
+          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://web.telegram.org/#/im?p=@Reverie_Wisp"><i class="fa fa-paper-plane" aria-hidden="true" style="margin-left: -4px; margin-top: -8px;"></i></a>
 
           <!-- Link: GitHub -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://github.com/ReverieWisp"><i class="fa fa-github" aria-hidden="true" style="font-size: 1.6em; margin-left: -4px; margin-top: 0px;"></i></a>
+          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://github.com/ReverieWisp"><i class="fa fa-github" aria-hidden="true" style="font-size: 1.6em; margin-top: 3px;"></i></a>
 
           <!-- Link: ko-fi -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://ko-fi.com/reveriewisp"><i class="fas fa-coffee" aria-hidden="true" style="font-size: 1.1em; margin-top: 5px; margin-left: -4px;"></i></a>
+          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://ko-fi.com/reveriewisp"><i class="fas fa-coffee" aria-hidden="true" style="font-size: 1.1em; margin-top: 5px;"></i></a>
         </div>
       </div>
       </div>
     </div>
 
 
-    <!-- =========== Start Bootstrap Core JavaScript =========== -->
-    
-    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- =========== Bootstrap stuff =========== -->    
+    <!-- Loaded here to be after page contents -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
     <script src="/assets/js/bootstrap.min.js"></script>
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- =========== End Bootstrap Core JavaScript =========== -->
-
-    <!-- =========== Start Custom JavaScript =========== -->
+    <!-- =========== Custom JavaScript =========== -->
     <script>
       // Acquire the center image and remove drag start events.
-      document.getElementById('rw-logo-img').ondragstart = function() { 
-        return false; 
-      };
-
       document.getElementById('rw-avatar-main').ondragstart = function() {
         return false;
       }
@@ -105,22 +100,23 @@
 
         // Ring calculation for button locations
         let radiusOffset = 15;
-        let radius = ($('#rw-logo').height() / 2) + radiusOffset;
+        let radius = ($('#rw-focus').height() / 2) + radiusOffset;
 
         // Div width and height for positioning
-        let magicNumberOffsetY = -12; // literally a magic offset number
-        let magicNumberOffsetX = -20;
-        let width = 300 + magicNumberOffsetX;//imageDiv.width() + magicNumberOffsetY;
-        let height = 300 + magicNumberOffsetY;//imageDiv.height() + magicNumberOffsetX;
+        let widthOffset = -12; 
+        let heightOffset = -20;
+        let width = 300 + widthOffset;
+        let height = 200 + heightOffset;
           
         // By default the step evently distributes locations. This scales it.
-        let arcSpacing = 17.5; //13.5; < for 3
-        let auto_rad_conversion = arcSpacing * 3.1415/180;
-        let initRotationOffset = -22;//-15; < for 3 // In degrees because of rasins
-        let step = (2*Math.PI) / fields.length * auto_rad_conversion;
-        let angle = (initRotationOffset * 3.1415/180) + step;
+        let arcSpacing = 17.5;        // Degrees
+        let initRotationOffset = -22; // Degrees
+        let radToDegrees = 3.1415/180;
 
-        // Distribute function
+        let step = (2 * Math.PI) / fields.length * arcSpacing * radToDegrees;
+        let angle = (initRotationOffset * radToDegrees) + step;
+
+        // Distribute buttons
         fields.each(function() {
 
           // Generate location
@@ -130,7 +126,7 @@
           $(this).css({ left: x + 'px', top: y + 'px' });
           $(this).css("visibility", "visible");
           $(this).css("opacity", "1");
-          // Update stepping
+
           angle += step;
         });
       }
@@ -144,45 +140,6 @@
     let heightTargetHide = '0px';
     let transitionTime = 300; //ms
     let internalTransitionTime = 200;
-
-    function showLogo() {
-      $('#rw-logo').animate({ height: heightTargetShow}, transitionTime);
-      $('#rw-logo-img').animate({ height: heightTargetImageShow}, transitionTime);
-      $('#rw-about').animate({ height: heightTargetHide }, transitionTime);
-      $('#rw-links').animate({ height: heightTargetHide }, transitionTime, ()=>{$('#rw-links').css("display", "none");});
-    }
-
-    function showAbout() {
-      $('#rw-logo').animate({ height: heightTargetHide }, transitionTime);
-      $('#rw-logo-img').animate({ height: heightTargetHide}, transitionTime);
-      $('#rw-about').animate({ height: heightTargetShow }, transitionTime);
-      $('#rw-links').animate({ height: heightTargetHide }, transitionTime, ()=>{$('#rw-links').css("display", "none");});
-    }
-
-    function showLinks() {
-      $('#rw-logo').animate({ height: heightTargetHide}, transitionTime);
-      $('#rw-logo-img').animate({ height: heightTargetHide}, transitionTime);
-      $('#rw-about').animate({ height: heightTargetHide }, transitionTime);
-      $('#rw-links').animate({ height: heightTargetShow }, transitionTime);
-      $('#rw-links').css("display", "block");
-    }
-
-    $('#rw-links-btn').click(function () {
-      if ($('#rw-links').css('height') == heightTargetShow) {
-        showLogo();
-      } else {
-        showLinks();
-      }
-    });
-
-    $('#rw-about-btn').click(function () {
-      if ($('#rw-about').css('height') == heightTargetShow) {
-        showLogo();
-      } else {
-        showAbout();
-      }
-    });
-
     </script>
 
   </body>
