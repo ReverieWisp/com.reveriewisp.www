@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=.9">
 
     <!-- Set up meta info and whatnot -->
-    <title>Reverie Wisp Home</title>
+    <title>Reverie Wisp</title>
     <link rel="icon" type="image/png" href="/assets/logo32px.ico">
     <meta name="description" content="I'm Wisp, a game developer and houseplant hoarder - thanks for checking out my stuff! Twitter or Telegram works best if you wanna get ahold of me, and anywhere else may take a little while but I'll get around to messages eventually. If you see 'Reverie Wisp' elsewhere, that's probably me too!">
     <meta name="author" content="Reverie Wisp">
@@ -32,46 +32,174 @@
       image-rendering: pixelated;
     }
 
-    .rw-image-text {
-      position: relative;
-      left: 0px;
-      top: -50px;
-      margin-top: 20px;
+    #rw-main-container {
+      width: 300px;
+      height: 300px;
       text-align: left;
-      opacity: 0.5;
     }
+
+    #rw-avatar-main {
+      border-radius: 500px;
+      border: 7px solid white;
+      animation: fadeIn ease 0.75s;
+      width: 300px;
+      height: 300px;
+    }
+
+    .rw-artist-link {
+      position: absolute;
+      top: 110px;
+      left: 230px;
+      font-size: 16px;
+      animation: fadeIn ease 1.25s;
+    }
+
+    .btn-circle {
+      color:#fff;
+      text-align: center;
+
+      padding: 6px 0;
+      font-size: 12px;
+
+      opacity: 0;
+      animation: fadeIn ease 1.25s;
+    }
+    .btn-circle.btn-lg {
+      width: 55px;
+      height: 55px;
+      font-size: 22px;
+      border-radius: 200px;
+    }
+
+    .rw-image-text {
+      text-align: left;
+      margin-left: 10px;
+      margin-top: 3em;
+      animation: fadeIn ease 2s;
+    }
+
+    .rw-hide-text {
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
+    .rw-button-text {
+      font-size: 11px;
+      opacity: .5;
+    }
+
+    .rw-select-disable {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+
+    @keyframes fadeIn {
+      0% {opacity:0;}
+      100% {opacity:1;}
+    }
+
+    @-moz-keyframes fadeIn {
+      0% {opacity:0;}
+      100% {opacity:1;}
+    }
+
+    @-webkit-keyframes fadeIn {
+      0% {opacity:0;}
+      100% {opacity:1;}
+    }
+
+    @-o-keyframes fadeIn {
+      0% {opacity:0;}
+      100% {opacity:1;}
+    }
+
+    @-ms-keyframes fadeIn {
+      0% {opacity:0;}
+      100% {opacity:1;}
+    }
+
+    /* Fade cycling, for another time */
+
+    .rw-focus {
+      position: relative;
+      overflow: hidden;
+    }
+     
+    .rw-focus img {
+      width: 100%;
+      display:block;
+    }
+     
+    .rw-resize {
+      position: absolute;
+      top:0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      overflow: hidden;
+    }
+
+    .rw-separator {
+      position:absolute; 
+      left:0%;
+      top:0;
+      bottom:0;
+      width:4px;
+      margin-left:-2px;
+      visibility: visible;
+      background: rgba(0,0,0,.5);
+    }
+
   </style>
 
   <body>
     <div id="rw-background">
       <div id="rw-background-overlay">
-      <div id="rw-primary">
-        <div id="rw-approximately-centered-div">
+        <div id="rw-primary">
 
           <!-- "Center" image and section -->
-          <div id="rw-focus" class="rw-dropshadow" style="max-width: 300px; max-height: 300px;">
-            <img class="rw-select-disable rw-dropshadow rw-pixel" style="width: 250px; height: 250px;" id="rw-avatar-main" src="/assets/wisp-by-shilmaz-via-rin-blep-clear.png" alt="A picture of Wisp - a grey dragon character with grown hair, glasses, and a smile!">
-            <div class="rw-image-text">
-              <p>
-                <a href="https://reveriewisp.com/assets/ref.png"><i class="fas fa-link"></i> Ref</a><br/>
-                <a href="https://twitter.com/shlimaz"><i class="fas fa-link"></i> Icon artist</a>
-              </p>
-            </div>
+          <div id="rw-main-container" class="rw-dropshadow">
+            <img class="rw-select-disable rw-pixel rw-hide-text" id="rw-avatar-main" src="/assets/wisp-by-shilmaz-via-rin-blep-clear.png" alt="A picture of a grey dragon character with grown hair, glasses, and a smile!">
+            
+            <div class="rw-artist-link"><a href="https://twitter.com/shlimaz"><i class="fas fa-paint-brush"></i></a></div>
+
+            <!-- Link: Twitter -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .2;"  href="https://twitter.com/ReverieWisp"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 1.2em; margin-top: 2px;"></i><br/><span class="rw-button-text">twitter</span></a>
+
+            <!-- Link: Telegram -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;"  href="https://web.telegram.org/#/im?p=@Reverie_Wisp"><i class="fa fa-paper-plane" aria-hidden="true" style="margin-top: 1px; margin-left: -1px;"></i><br/><span class="rw-button-text">telegram</span></a>
+
+            <!-- Link: GitHub -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .5;"  href="https://github.com/ReverieWisp"><i class="fas fa-code" aria-hidden="true" style="margin-top: 2px;"></i><br/><span class="rw-button-text">github</span></a>
+
+            <!-- Link: ko-fi -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .4;" href="https://ko-fi.com/reveriewisp" target="_blank"><i class="fas fa-coffee" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">ko-fi</span></a>
+
+            <!-- Link: ref -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://reveriewisp.com/assets/ref.png"><i class="fas fa-image" aria-hidden="true" style="margin-top: 5px;"></i><br/><span class="rw-button-text">ref</span></a>
           </div>
-          
-          <!-- Link: Twitter -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://twitter.com/ReverieWisp"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 1.3em; margin-left: 2px; margin-top: 8px;"></i></a>
 
-          <!-- Link: Telegram -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://web.telegram.org/#/im?p=@Reverie_Wisp"><i class="fa fa-paper-plane" aria-hidden="true" style="margin-left: -4px; margin-top: -8px;"></i></a>
+<!--
+            <div class="rw-focus">
+              <img id="img-primary" src="assets/ref.png" alt="">       
+              <div class="rw-resize">
+                <img id="img-secondary" src="assets/inv.png" alt="">
+              </div>
+              <span class="rw-separator"></span>
+            </div>
+-->
 
-          <!-- Link: GitHub -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://github.com/ReverieWisp"><i class="fa fa-github" aria-hidden="true" style="font-size: 1.6em; margin-top: 3px;"></i></a>
-
-          <!-- Link: ko-fi -->
-          <a class="rw-dropshadow rw-start-hidden btn-radial btn btn-primary btn-circle btn-xl btn-distributable" href="https://ko-fi.com/reveriewisp"><i class="fas fa-coffee" aria-hidden="true" style="font-size: 1.1em; margin-top: 5px;"></i></a>
+          <div class="rw-image-text">
+            <div class="rw-dropshadow" style="background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)); height: 7px; width: 300px; border-radius: 10px;"></div>
+            <p style="text-align: left; margin-top: 1em;">
+              I'm Reverie Wisp - game dev, occasional artist, and houseplant hoarder! If you want to chat, feel free to send me a message on Twitter or Telegram.
+            </p>
+          </div>
+         
         </div>
-      </div>
       </div>
     </div>
 
@@ -95,51 +223,98 @@
 
       // Position the buttons around the image.
       function positionIconsOnLoad() {
-        // Defined variables for finding items and calculating positons
-        let fields = $('.btn-radial');
+        const degreesToRad = Math.PI / 180;
+        const buttonRadius = 30;
 
-        // Ring calculation for button locations
-        let radiusOffset = 15;
-        let radius = ($('#rw-focus').height() / 2) + radiusOffset;
+        // info about the target graphic to get the button circle
+        let imageToPlaceAround = $('#rw-main-container');
+        let width = imageToPlaceAround.width();
+        let height = imageToPlaceAround.height();
+        let radiusOversize = 0;
+        let radius = (width + height) / 4 + radiusOversize;
 
-        // Div width and height for positioning
-        let widthOffset = -12; 
-        let heightOffset = -20;
-        let width = 300 + widthOffset;
-        let height = 200 + heightOffset;
-          
-        // By default the step evently distributes locations. This scales it.
-        let arcSpacing = 17.5;        // Degrees
-        let initRotationOffset = -22; // Degrees
-        let radToDegrees = 3.1415/180;
+        // Layout options.
+        let stepSizeDegrees = 90/4;
+        let startingOffsetDegrees = 0;
 
-        let step = (2 * Math.PI) / fields.length * arcSpacing * radToDegrees;
-        let angle = (initRotationOffset * radToDegrees) + step;
+        // For each button, calculate position and place it.
+        let buttonsToPlace  = $('.btn-radial');
+        for (let i = 0; i < buttonsToPlace.length; i++) {
+          let target = buttonsToPlace[i];
+          let angleDeg = startingOffsetDegrees + i * stepSizeDegrees;
 
-        // Distribute buttons
-        fields.each(function() {
+          let centerX = width / 2;
+          let centerY = height / 2;
 
-          // Generate location
-          let x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
-          let y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
+          let x = Math.round(centerX + radius * Math.cos(angleDeg * degreesToRad) - buttonRadius);
+          let y = Math.round(centerY + radius * Math.sin(angleDeg * degreesToRad) - buttonRadius);
 
-          $(this).css({ left: x + 'px', top: y + 'px' });
-          $(this).css("visibility", "visible");
-          $(this).css("opacity", "1");
-
-          angle += step;
-        });
+          $(target).css({ left: x + 'px', top: y + 'px' });
+          $(target).css("visibility", "visible");
+          $(target).css("opacity", "1");
+        }
       }
 
       window.onload = function() {
         positionIconsOnLoad();
       };
 
-    let heightTargetShow = '300px';
-    let heightTargetImageShow = '250px';
-    let heightTargetHide = '0px';
-    let transitionTime = 300; //ms
-    let internalTransitionTime = 200;
+
+    $(document).ready(function(){
+      $(".rw-focus").each(function(){
+        let cur = $(this);
+        let width = cur.width() + "px";
+        cur.find(".rw-resize img").css("width", width);
+      });
+    });
+
+
+    function easeInSquare (t) {
+      return t * t * t;
+    };
+
+    const moveSpeed = .02;
+    let linePos_t = 1;
+    let doMove = true;
+    window.setInterval(()=>{
+      if(doMove) {
+
+        let finalStep = false;
+        linePos_t = linePos_t + moveSpeed;
+        if(linePos_t > 1) {
+          finalStep = true;
+          linePos_t = 1;
+        }
+
+        if(finalStep) {
+          // Reset layouts
+          $(".rw-resize").css("width", 0);
+          $(".rw-separator").css("left", 0);
+          $(".rw-separator").css("visibility", "hidden");
+
+          // Swap image sources
+          let primarySrc = $("#img-primary").attr("src");
+          $("#img-primary").attr("src", $("#img-secondary").attr("src"));
+          $("#img-secondary").attr("src", primarySrc);
+
+          // Reset variables and queue random reset
+          doMove = false;
+          setTimeout(resetMove, 3000);
+        } else {
+          let t = easeInSquare(linePos_t);
+          $(".rw-resize").css("width", t * 100 + "%");
+          $(".rw-separator").css("left", t * 100 + "%");
+        }
+      }
+    }, 10);
+
+    function resetMove()
+    {
+      linePos_t = 0;
+      doMove = true;
+      $(".rw-separator").css("visibility", "visible");
+    }
+
     </script>
 
   </body>
