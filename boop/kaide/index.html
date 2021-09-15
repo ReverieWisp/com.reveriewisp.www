@@ -154,14 +154,14 @@
         //////////////////
         // Get game object and add levels. Note: This must come last.
         // Note: Consider scaling by window.devicePixelRatio.
-        var game = new Phaser.Game(window.innerWidth, window.innerHeight - 35, Phaser.AUTO, '');  // Initialize the phaser window
+        var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '');  // Initialize the phaser window
         game.state.add('level_main', new Level1(game));                                           // Add your levels like this.
         game.state.start('level_main');                                                           // Dictates starting "Level".
 
 
         window.onresize = function(event) {
             game.destroy();
-            game = new Phaser.Game(window.innerWidth, window.innerHeight - 35, Phaser.AUTO, '');
+            game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '');
             game.state.add('level_main', new Level1(game));
             game.state.start('level_main');    
         }
