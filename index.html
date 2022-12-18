@@ -164,7 +164,11 @@
           <div id="rw-main-container" class="rw-dropshadow">
             <img class="rw-select-disable rw-pixel rw-hide-text" id="rw-avatar-main" src="/assets/wisp-by-shilmaz-via-rin-blep-clear.png" alt="A picture of a grey dragon character with grown hair, glasses, and a smile!">
             
-            <div class="rw-artist-link"><a href="https://twitter.com/shlimaz"><i class="fas fa-paint-brush"></i></a></div>
+            <!-- artist link for pic -->
+            <div class="rw-artist-link"><a href="https://shlimaz.carrd.co/"><i class="fas fa-paint-brush"></i></a></div>
+
+            <!-- Link: art -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://www.tumblr.com/reveriewisp"><i class="fa fa-tumblr" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">art blog</span></a>
 
             <!-- Link: Twitter -->
             <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .2;"  href="https://twitter.com/ReverieWisp"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 1.2em; margin-top: 2px;"></i><br/><span class="rw-button-text">twitter</span></a>
@@ -176,13 +180,15 @@
             <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .5;"  href="https://github.com/ReverieWisp"><i class="fas fa-code" aria-hidden="true" style="margin-top: 2px;"></i><br/><span class="rw-button-text">github</span></a>
 
             <!-- Link: ko-fi -->
-            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .4;" href="https://ko-fi.com/reveriewisp" target="_blank"><i class="fas fa-coffee" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">ko-fi</span></a>
+            <!--a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .4;" href="https://ko-fi.com/reveriewisp" target="_blank"><i class="fas fa-coffee" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">ko-fi</span></a-->
 
             <!-- Link: ref -->
             <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://reveriewisp.com/assets/ref.png"><i class="fas fa-image" aria-hidden="true" style="margin-top: 5px;"></i><br/><span class="rw-button-text">ref</span></a>
+
           </div>
 
-<!--
+<!-- Sample slideshow/fade
+
             <div class="rw-focus">
               <img id="img-primary" src="assets/ref.png" alt="">       
               <div class="rw-resize">
@@ -195,7 +201,7 @@
           <div class="rw-image-text">
             <div class="rw-dropshadow" style="background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)); height: 7px; width: 300px; border-radius: 10px;"></div>
             <p style="text-align: left; margin-top: 1em;">
-              I'm Reverie Wisp - game dev, occasional artist, and houseplant hoarder! If you want to chat, feel free to send me a message on Twitter or Telegram.
+              I'm Reverie Wisp! Game dev, artist, and houseplant hoarder! If you want to chat, feel free to send me a message on Twitter or Telegram.
             </p>
           </div>
          
@@ -234,7 +240,7 @@
         let radius = (width + height) / 4 + radiusOversize;
 
         // Layout options.
-        let stepSizeDegrees = 90/4;
+        let stepSizeDegrees = 22.5; // 90/4 => 4 in a 90 degree section (0.5 + 1 + 1 + 1 + 0.5);
         let startingOffsetDegrees = 0;
 
         // For each button, calculate position and place it.
