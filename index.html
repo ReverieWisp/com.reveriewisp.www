@@ -40,7 +40,7 @@
     #rw-avatar-main {
       border-radius: 500px;
       border: 7px solid white;
-      animation: fadeIn ease 0.75s;
+      animation: fadeIn ease 0.5s;
       width: 300px;
       height: 300px;
     }
@@ -50,19 +50,20 @@
       top: 110px;
       left: 230px;
       font-size: 16px;
-      animation: fadeIn ease 1.25s;
+      animation: fadeIn ease 0.5s;
     }
 
     .btn-circle {
       color:#fff;
       text-align: center;
 
-      padding: 6px 0;
+      padding: 6px;
       font-size: 12px;
       visibility: hidden;
       opacity: 0;
-      animation: fadeIn ease 1.25s;
+      animation: fadeIn ease 0.5s;
     }
+
     .btn-circle.btn-lg {
       width: 55px;
       height: 55px;
@@ -161,13 +162,21 @@
 
           <!-- "Center" image and section -->
           <div id="rw-main-container" class="rw-dropshadow">
-            <img class="rw-select-disable rw-pixel rw-hide-text" id="rw-avatar-main" src="/assets/wisp-by-shilmaz-via-rin-blep-clear.png" alt="A picture of a grey dragon character with grown hair, glasses, and a smile!">
+            <img class="rw-select-disable rw-hide-text" id="rw-avatar-main" src="/assets/headshot-no-outline.png" alt="A picture of a grey dragon character with grown hair, glasses, and a smile!">
             
-            <!-- artist link for pic -->
-            <div class="rw-artist-link"><a href="https://shlimaz.carrd.co/"><i class="fas fa-paint-brush"></i></a></div>
+            <!--
+            artist link for pic
+            <div class="rw-artist-link"><a href="https://shlimaz.com/"><i class="fas fa-paint-brush"></i></a></div>
+            -->
 
             <!-- Link: art -->
-            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://www.tumblr.com/reveriewisp"><i class="fa-brands fa-tumblr" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">art blog</span></a>
+            <a id="sampleButton" class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://plantsanddragons.com/"><i class="fa-solid fa-link" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">art site</span></a>
+
+            <!-- Link: art -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://www.tumblr.com/reveriewisp"><i class="fa-brands fa-tumblr" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">tumblr</span></a>
+
+            <!-- Link: Discord -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://www.discord.com/users/145720924325412865"><i class="fa-brands fa-discord" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">discord</span></a>
 
             <!-- Link: Blueksy -->
             <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .2;"  href="https://bsky.app/profile/reveriewisp.com"><i class="fa-brands fa-bluesky" aria-hidden="true" style="font-size: 1.2em; margin-top: 2px;"></i><br/><span class="rw-button-text">bluesky</span></a>
@@ -181,8 +190,12 @@
             <!-- Link: ko-fi -->
             <!--a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .4;" href="https://ko-fi.com/reveriewisp" target="_blank"><i class="fas fa-coffee" aria-hidden="true" style="margin-top: 4px;"></i><br/><span class="rw-button-text">ko-fi</span></a-->
 
-            <!-- Link: ref -->
-            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://reveriewisp.com/assets/ref.png"><i class="fas fa-image" aria-hidden="true" style="margin-top: 5px;"></i><br/><span class="rw-button-text">ref</span></a>
+            <!-- Link: ref for willow -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://reveriewisp.com/assets/ref-willow.png"><i class="fas fa-image" aria-hidden="true" style="margin-top: 5px;"></i><br/><span class="rw-button-text">willow</span></a>
+
+            <!-- Link: ref for wisp -->
+            <a class="rw-dropshadow btn-radial btn btn-primary btn-circle btn-lg btn-distributable" style="line-height: .3;" href="https://reveriewisp.com/assets/ref.png"><i class="fas fa-image" aria-hidden="true" style="margin-top: 5px;"></i><br/><span class="rw-button-text">wisp</span></a>
+
 
           </div>
 
@@ -198,9 +211,8 @@
 -->
 
           <div class="rw-image-text">
-            <div class="rw-dropshadow" style="background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)); height: 7px; width: 300px; border-radius: 10px;"></div>
-            <p style="text-align: left; margin-top: 1em;">
-              I'm Reverie Wisp! Game dev, artist, and houseplant hoarder! If you want to chat, feel free to send me a message on Twitter or Telegram.
+            <p style="text-align: center; margin-top: 1em;">
+              I'm Reverie Wisp - houseplant hoarder, full-time game developer, part time artist, and dragon on the internet!
             </p>
           </div>
          
@@ -229,30 +241,26 @@
       // Position the buttons around the image.
       function positionIconsOnLoad() {
         const degreesToRad = Math.PI / 180;
-        const buttonRadius = 30;
+        const stepSizeDegrees = 24; // Slice each button gets
+        const startingOffsetDegrees = -55;
+        const buttonWidth = 55;
 
-        // info about the target graphic to get the button circle
         let imageToPlaceAround = $('#rw-main-container');
         let width = imageToPlaceAround.width();
         let height = imageToPlaceAround.height();
-        let radiusOversize = 0;
-        let radius = (width + height) / 4 + radiusOversize;
-
-        // Layout options.
-        let stepSizeDegrees = 22.5; // 90/4 => 4 in a 90 degree section (0.5 + 1 + 1 + 1 + 0.5);
-        let startingOffsetDegrees = 0;
+        let imageRadius = width / 2;
+        let buttonRadius = buttonWidth / 2;
 
         // For each button, calculate position and place it.
-        let buttonsToPlace  = $('.btn-radial');
+        let buttonsToPlace = $('.btn-radial');
         for (let i = 0; i < buttonsToPlace.length; i++) {
           let target = buttonsToPlace[i];
           let angleDeg = startingOffsetDegrees + i * stepSizeDegrees;
-
           let centerX = width / 2;
           let centerY = height / 2;
 
-          let x = Math.round(centerX + radius * Math.cos(angleDeg * degreesToRad) - buttonRadius);
-          let y = Math.round(centerY + radius * Math.sin(angleDeg * degreesToRad) - buttonRadius);
+          let x = Math.round(centerX - buttonRadius + imageRadius * Math.cos(angleDeg * degreesToRad));
+          let y = Math.round(centerY - buttonRadius + imageRadius * Math.sin(angleDeg * degreesToRad));
 
           $(target).css({ left: x + 'px', top: y + 'px' });
           $(target).css("visibility", "visible");
@@ -263,63 +271,6 @@
       window.onload = function() {
         positionIconsOnLoad();
       };
-
-
-    $(document).ready(function(){
-      $(".rw-focus").each(function(){
-        let cur = $(this);
-        let width = cur.width() + "px";
-        cur.find(".rw-resize img").css("width", width);
-      });
-    });
-
-
-    function easeInSquare (t) {
-      return t * t * t;
-    };
-
-    const moveSpeed = .02;
-    let linePos_t = 1;
-    let doMove = true;
-    window.setInterval(()=>{
-      if(doMove) {
-
-        let finalStep = false;
-        linePos_t = linePos_t + moveSpeed;
-        if(linePos_t > 1) {
-          finalStep = true;
-          linePos_t = 1;
-        }
-
-        if(finalStep) {
-          // Reset layouts
-          $(".rw-resize").css("width", 0);
-          $(".rw-separator").css("left", 0);
-          $(".rw-separator").css("visibility", "hidden");
-
-          // Swap image sources
-          let primarySrc = $("#img-primary").attr("src");
-          $("#img-primary").attr("src", $("#img-secondary").attr("src"));
-          $("#img-secondary").attr("src", primarySrc);
-
-          // Reset variables and queue random reset
-          doMove = false;
-          setTimeout(resetMove, 3000);
-        } else {
-          let t = easeInSquare(linePos_t);
-          $(".rw-resize").css("width", t * 100 + "%");
-          $(".rw-separator").css("left", t * 100 + "%");
-        }
-      }
-    }, 10);
-
-    function resetMove()
-    {
-      linePos_t = 0;
-      doMove = true;
-      $(".rw-separator").css("visibility", "visible");
-    }
-
     </script>
 
   </body>
